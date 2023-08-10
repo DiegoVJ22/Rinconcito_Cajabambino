@@ -1,0 +1,772 @@
+
+*{
+    box-sizing: border-box;
+    
+}
+
+h1{font-size: 3em;}
+h3{font-size: 1.25em;}
+p{font-size: 1.25em;}
+ul{list-style: none;}
+html {
+    scroll-behavior:smooth;
+}
+
+.color{
+    color: rgb(80, 161, 80);
+}
+
+body{
+    font-family: "Acme", sans-serif;
+    margin: 0;
+}
+
+header{
+    background: linear-gradient(to right, gold, goldenrod);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+}
+
+.bar{
+    display:none;
+}
+
+.logo{
+    margin-top: 4%;
+}
+
+.slogan{
+    color:goldenrod; 
+    font-size: 50px;
+    font-family: 'Acme', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-top:30%;
+}
+
+.lang-menu {
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+    margin-top: 30px;
+    position: fixed;
+    left: 30px;
+    display: flex;
+}
+.lang-menu #selected-lang {
+    display: flex;
+    justify-content: space-between;
+    line-height: 2;
+    cursor: pointer;
+}
+.lang-menu #selected-lang:before {
+    content: '';
+    display:inline-block;
+    background-image: url(recursos/flecha_verde.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 5px;
+    margin-right: 5px;
+    width:20px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.lang-menu ul {
+    margin: 0;
+    padding: 0;
+    display: none;
+    background-color: #fff;
+    border: 0.5px solid #f8f8f8;
+    position: absolute;
+    top: 30px;
+    right:3px;
+    width: 110px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+}
+
+
+.lang-menu ul li {
+    list-style: none;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lang-menu ul li a {
+    text-decoration: none;
+    width: 120px;
+    font-size: 15px;
+    color: black;
+    padding: 5px 10px;
+    display: block;
+}
+
+.lang-menu ul li:hover {
+    background-color: rgb(80, 161, 80);
+}
+
+ .lang-menu ul li a:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    vertical-align: middle;
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.es:before {
+    background-image: url(recursos/es.svg);
+}
+
+.en:before {
+    background-image: url(recursos/us.svg);
+}
+
+.de:before {
+    background-image: url(recursos/de.svg);
+}
+.fr:before {
+    background-image: url(recursos/fr.svg);
+}
+
+.lang-menu:hover ul {
+    display: block;
+}
+
+.btn-wpp{
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    bottom: 30px;
+    right: 30px;
+    background: rgb(80, 161, 80);
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+    z-index: 100;
+    display: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-wpp:hover {
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle {
+    display: none;
+  }
+
+  .dark-mode-label {
+    position: fixed;
+    top: 27px;
+    right: 20px;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    border-radius: 17px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .toggle-icon {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+
+  .toggle-icon i {
+    position: absolute;
+    transition: opacity 0.3s ease;
+  }
+
+  .dark-mode-toggle:checked + .dark-mode-label {
+    background-color: rgb(80, 161, 80);
+  }
+
+  .dark-mode-toggle:checked + .dark-mode-label .toggle-icon {
+    transform: translateX(25px);
+  }
+
+  .dark-mode-toggle:checked + .dark-mode-label .toggle-icon .fa-sun {
+    opacity: 0;
+  }
+
+  .dark-mode-toggle:checked + .dark-mode-label .toggle-icon .fa-moon {
+    opacity: 1;
+    color:black;
+  }
+
+  .dark-mode-toggle:not(:checked) + .dark-mode-label .toggle-icon .fa-sun {
+    opacity: 1;
+  }
+
+  .dark-mode-toggle:not(:checked) + .dark-mode-label .toggle-icon .fa-moon {
+    opacity: 0;
+  }
+
+.dark-mode {
+    .head{
+        background-color: rgb(20,20,20);
+        box-shadow: 0px 0px 7px rgb(80, 161, 80);
+    }
+    .lang-menu ul {
+        background-color: #1f1f1f;
+        border: 0px;
+        box-shadow: 0px 0px 3px #ffff;
+    }
+    .lang-menu ul li a {
+        color: #ffff;
+    }
+
+    #beneficios, #testimonios{
+        background-color: rgb(20,20,20);
+    }
+    color: #fff;
+    #caracteristicas, #final, footer{
+        background-color: #1f1f1f;
+    }
+    #testimonios .test{
+        box-shadow: 0px 0px 5px #ffff;
+        background-color: #1f1f1f;
+    }
+    #testimonios .info-test img{
+        filter: invert(50%);
+    }
+    #testimonios .info-test p{
+        color: #ffff;
+    }
+
+    #testimonios .perfil img{
+        box-shadow: 0px 0px 5px #ffff;
+    }
+
+    #testimonios .perfil h4{
+        color: #adadad;
+    }
+
+}
+
+
+#principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bar-principal a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    background-color: goldenrod;
+    border-radius: 5px;
+    padding: 5px;
+    font-family:  'Acme', sans-serif;
+    box-shadow: 1px 1px 1px 1px black;
+    max-width: 80px;
+    width: 100%;
+}
+
+.bar-principal i{
+    display: none;
+}
+
+.bar-principal{
+    display: flex;
+    width: 90vw;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15% 0% 50% 0%;
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+
+#nosotros{
+    padding: 0% 10% 17%;
+}
+
+#nosotros .img-container{
+    background-image:url("recursos/nosotros_1.jpg");
+    display: none;
+}
+
+#nosotros .img-container2{
+    background-image:url("recursos/marco.jpg");
+    display: none;
+}
+
+#contacto .contacto-img{
+    background-image:url("recursos/biombo.jpg");
+    display: none;
+}
+
+
+.carousel-plato {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #283048;
+    background: linear-gradient(to right, gold, goldenrod);
+    padding: 50px 50px 80px 50px; 
+}
+
+.carousel-plato h2,.carousel-cliente h2{
+    margin-bottom: 50px;
+}
+
+.container-carousel-plato {
+    position: relative;
+    width: 85vw;
+    height: 65vh;
+    background-color: white;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+    border-radius: 15px;
+    overflow: hidden;
+  
+}
+
+.info_plato{
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0% 7% 0% 7%;
+}
+
+.info_plato p{
+    margin-top: 0px
+}
+
+.carruseles-plato {
+    width: 600%;
+    height: 100%;
+    display: flex;
+
+}
+
+.slider-section-plato {
+    width: calc(100% / 6);
+    height: 100%;
+}
+
+.slider-section-plato img {
+    width: 100%;
+    height: 100%;
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.carousel-cliente {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 50px 80px 50px; 
+}
+
+
+
+.container-carousel-cliente {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.carruseles-cliente {
+    width: 1000%;
+    height: 100%;
+    display: flex;
+
+}
+
+.slider-section-cliente {
+    width: calc(100% / 10);
+    height: 100%;
+}
+
+.slider-section-cliente img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.btn-left,.btn-right,.btn-left2,.btn-right2 {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #ffffff81;
+    transform: translate(0,-50%);
+    transition: .5s ease;
+    user-select: none;
+}
+
+.btn-left:hover,.btn-right:hover,.btn-left2:hover,.btn-right2:hover {
+    background-color: #333333d4;
+    color: #fff;
+}
+
+.btn-left,.btn-left2 {
+    left: 10px;
+}
+
+.btn-right,.btn-right2 {
+    right: 10px;
+}
+
+#contacto{
+    background: linear-gradient(to right, gold, goldenrod);
+    padding-bottom: 7%;
+}
+
+.contacto-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    padding: 10%;
+}
+
+.direccion{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.btn-reserva,.ubicacion{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 3%;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+footer small{
+    margin: 0;
+    padding: 3px;
+    color: white;
+}
+
+footer{
+    background-color: rgb(20,20,20);
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+}
+
+footer nav{
+    width: 60vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 40px 0px 50px 0px;
+}
+
+@media (min-width:768px) and (max-width:1280px) {
+
+    header{
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .logo{
+        margin-top: 2%;
+    }
+
+    .btn-wpp{
+        display: block;
+    }
+
+    .bar{
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+    }
+
+    .bar a{
+        text-decoration: none;
+        color:black;
+    }
+
+    .bar-principal{
+        display: none;
+    }
+
+    .slogan{
+        font-size: 85px;
+        padding-top: 0%;
+        margin-top: 0%;
+    }
+
+    #nosotros{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #nosotros .img-container{
+        display: block;
+        background-size: cover;
+        background-position: center center;
+        height: 270px;
+        width: 50%;
+        max-width: 400px;
+        box-shadow: 0px 0px 5px black;
+    }
+
+    #nosotros .img-container2{
+        display: block;
+        background-size: cover;
+        background-position: center center;
+        height: 280px;
+        width: 30%;
+        max-width: 200px;
+        box-shadow: 0px 0px 5px black;
+    }
+
+    .img-info, .img-info2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .img-info{
+        padding: 8% 0% 10% 0%;
+    }
+
+    #nosotros .texto{
+        width: 50%;
+        padding-left: 5%;
+    }
+
+    #nosotros .texto2{
+        width: 70%;
+        padding-right: 5%;
+    }
+
+    .carousel-cliente {
+        height: 80vh;
+    }
+
+    .container-carousel-cliente, .container-carousel-plato{
+        width: 80%;
+    }
+
+    #contacto{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10% 5%;
+    }
+
+    #contacto .contacto-img{
+        display: block;
+        background-size: cover;
+        background-position: center center;
+        height: 470px;
+        width: 50%;
+        max-width: 300px;
+        box-shadow: 0px 0px 5px black;
+        margin-right: 5%;
+    }
+
+    #contacto .contacto-info{
+        padding: 0%;
+        width: 50%;
+    }
+
+}
+@media (min-width: 1280px){
+
+    header{
+        width: 100%;
+        justify-content: space-between;
+        padding: 0% 3%;
+    }
+
+    .logo{
+        margin-top: 1%;
+    }
+
+    .btn-wpp{
+        display: block;
+    }
+
+    .bar{
+        display: flex;
+        justify-content: space-between;
+        width: 30%;
+    }
+
+    .bar a{
+        text-decoration: none;
+        color:black;
+    }
+
+    .bar-principal{
+        display: none;
+    }
+
+    .slogan{
+        font-size: 85px;
+        padding-top: 0%;
+        margin-top: 0%;
+    }
+
+    #nosotros{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 8%;
+        margin: 0%;
+    }
+
+    #nosotros .img-container{
+        display: block;
+        background-size: cover;
+        background-position: center center;
+        height: 400px;
+        width: 50%;
+        max-width: 600px;
+        box-shadow: 0px 0px 5px black;
+    }
+
+    #nosotros .img-container2{
+        display: block;
+        background-size: cover;
+        background-position: center center;
+        height: 400px;
+        width: 30%;
+        max-width: 300px;
+        box-shadow: 0px 0px 5px black;
+    }
+
+    .img-info, .img-info2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .img-info{
+        padding: 8% 0% 10% 0%;
+    }
+
+    #nosotros .texto{
+        width: 50%;
+        padding-left: 5%;
+    }
+
+    #nosotros .texto2{
+        width: 70%;
+        padding-right: 5%;
+    }
+
+
+    .pyc{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carousel-cliente, .carousel-plato{
+        height: 100vh;
+    }
+
+    #platos, #clientes{
+        width: 50%;
+    }
+
+    #clientes{
+        background: linear-gradient(to left, gold, goldenrod);
+    }
+
+    .container-carousel-plato{
+        width: 38vw;
+        height: 65vh;
+    }
+
+    .container-carousel-cliente{
+        width: 38vw;
+        height: 65vh;
+    }
+
+    #contacto{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5% 5%;background: white;
+    }
+
+    #contacto .contacto-img{
+        display: block;
+        background-size: cover;
+        background-position: center center;
+        height: 700px;
+        width: 50%;
+        max-width: 450px;
+        box-shadow: 0px 0px 5px black;
+        margin-right: 5%;
+    }
+
+    #contacto .contacto-info{
+        padding: 0%;
+        width: 50%;
+    }
+
+}
+
